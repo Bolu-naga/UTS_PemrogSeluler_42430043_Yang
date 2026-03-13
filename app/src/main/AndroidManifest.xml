@@ -7,7 +7,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="Portal Dosen"
+        android:label="Portal Dosen PRO"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
@@ -23,11 +23,17 @@
         </activity>
 
         <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
+
         <activity
             android:name=".PanelActivity"
             android:exported="false" />
+
     </application>
 
 </manifest>
