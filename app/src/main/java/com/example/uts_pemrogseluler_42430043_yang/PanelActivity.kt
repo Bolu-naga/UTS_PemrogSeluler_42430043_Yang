@@ -12,13 +12,11 @@ class PanelActivity : AppCompatActivity() {
         val tvInfoDosen = findViewById<TextView>(R.id.tvInfoDosen)
         val tvDaftarAbsen = findViewById<TextView>(R.id.tvDaftarAbsen)
 
-        // Menangkap data dari Intent
         val namaDosen = intent.getStringExtra("EXTRA_NAMA")
         val mataKuliah = intent.getStringExtra("EXTRA_MATKUL")
         val jumlahMhs = intent.getIntExtra("EXTRA_JUMLAH", 0)
         val isPagi = intent.getBooleanExtra("EXTRA_IS_PAGI", true)
 
-        // MODUL 5: Implementasi If-Else
         val statusKelas: String
         val batasLulus: String
         if (isPagi) {
@@ -29,18 +27,25 @@ class PanelActivity : AppCompatActivity() {
             batasLulus = "65"
         }
 
-        // Tampilkan Info Header
-        tvInfoDosen.text = "Dosen Pengampu : $namaDosen\n" +
-                "Mata Kuliah    : $mataKuliah\n" +
-                "Status Kelas   : $statusKelas\n" +
-                "Target Lulus   : > $batasLulus\n" +
-                "Jumlah Mhs     : $jumlahMhs Orang"
+        // Tampilan Info yang lebih rapi
+        tvInfoDosen.text = "DOSEN PENGAMPU  : ${namaDosen?.uppercase()}\n" +
+                "MATA KULIAH     : ${mataKuliah?.uppercase()}\n" +
+                "STATUS KELAS    : $statusKelas\n" +
+                "SYARAT KELULUSAN: Nilai Minimal $batasLulus\n" +
+                "TOTAL MAHASISWA : $jumlahMhs Orang"
 
-        // MODUL 5: Implementasi For Loop
+        // Desain Tabel ASCII untuk Daftar Absen
         val stringBuilder = java.lang.StringBuilder()
+        stringBuilder.append("--------------------------------------------------\n")
+        stringBuilder.append("NO | NAMA MAHASISWA         | NILAI AKHIR | STATUS\n")
+        stringBuilder.append("--------------------------------------------------\n")
+
         for (i in 1..jumlahMhs) {
-            stringBuilder.append("$i. Nama: ______________ | Nilai: [    ]\n")
+            // Membuat angka urut rata kanan agar rapi (misal: " 1", " 2", "10")
+            val no = i.toString().padEnd(2, ' ')
+            stringBuilder.append("$no | ______________________ | [       ]   | ______\n")
         }
+        stringBuilder.append("--------------------------------------------------\n")
 
         tvDaftarAbsen.text = stringBuilder.toString()
     }

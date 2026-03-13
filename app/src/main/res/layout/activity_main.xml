@@ -1,75 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center_vertical">
+    android:background="#F4F6F9"
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Generator Lembar Penilaian"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="24dp"
-        android:layout_gravity="center_horizontal"/>
-
-    <EditText
-        android:id="@+id/etNamaDosen"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nama Dosen"
-        android:inputType="textPersonName"
-        android:layout_marginBottom="12dp"/>
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_vertical">
 
-    <EditText
-        android:id="@+id/etMataKuliah"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mata Kuliah"
-        android:inputType="text"
-        android:layout_marginBottom="12dp"/>
-
-    <EditText
-        android:id="@+id/etJumlahMahasiswa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Jumlah Mahasiswa"
-        android:inputType="number"
-        android:layout_marginBottom="12dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sesi Kelas:"
-        android:layout_marginTop="8dp"/>
-
-    <RadioGroup
-        android:id="@+id/rgSesiKelas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="24dp">
-        <RadioButton
-            android:id="@+id/rbPagi"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pagi (Reguler)"
-            android:checked="true"/>
-        <RadioButton
-            android:id="@+id/rbMalam"
+            android:text="Portal Dosen"
+            android:textSize="16sp"
+            android:textColor="#5F6368"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="Malam (Karyawan)"/>
-    </RadioGroup>
+            android:text="Generator Penilaian"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#202124"
+            android:layout_marginBottom="24dp"
+            android:layout_gravity="center_horizontal"/>
 
-    <Button
-        android:id="@+id/btnGenerate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Generate Lembar Nilai"
-        android:padding="12dp"/>
-</LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#FFFFFF"
+            android:layout_marginBottom="24dp">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Data Kelas"
+                    android:textStyle="bold"
+                    android:textColor="#1A73E8"
+                    android:layout_marginBottom="16dp"/>
+
+                <EditText
+                    android:id="@+id/etNamaDosen"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Nama Lengkap Dosen"
+                    android:inputType="textPersonName"
+                    android:background="@android:drawable/edit_text"
+                    android:layout_marginBottom="12dp"/>
+
+                <EditText
+                    android:id="@+id/etMataKuliah"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Mata Kuliah"
+                    android:inputType="text"
+                    android:background="@android:drawable/edit_text"
+                    android:layout_marginBottom="12dp"/>
+
+                <EditText
+                    android:id="@+id/etJumlahMahasiswa"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Jumlah Mahasiswa (Angka)"
+                    android:inputType="number"
+                    android:background="@android:drawable/edit_text"
+                    android:layout_marginBottom="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih Sesi Kelas:"
+                    android:textColor="#5F6368"
+                    android:layout_marginBottom="8dp"/>
+
+                <RadioGroup
+                    android:id="@+id/rgSesiKelas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton
+                        android:id="@+id/rbPagi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pagi (Reguler)"
+                        android:checked="true"/>
+                    <RadioButton
+                        android:id="@+id/rbMalam"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Malam (Karyawan)"/>
+                </RadioGroup>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/btnGenerate"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="GENERATE LEMBAR NILAI"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:cornerRadius="12dp"/>
+
+    </LinearLayout>
+</ScrollView>
