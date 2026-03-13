@@ -19,12 +19,17 @@ class MainActivity : AppCompatActivity() {
         val rbPagi = findViewById<RadioButton>(R.id.rbPagi)
         val btnGenerate = findViewById<Button>(R.id.btnGenerate)
 
-        btnGenerate.setOnClickListener {
+        btnGenerate.setOnClickListener { view ->
+            // EFEK PREMIUM 1: HP Bergetar Halus saat tombol diklik
+            view.performHapticFeedback(android.view.HapticFeedbackConstants.VIRTUAL_KEY)
+
             val nama = etNamaDosen.text.toString()
             val matkul = etMataKuliah.text.toString()
             val jumlahStr = etJumlahMahasiswa.text.toString()
 
             if (nama.isEmpty() || matkul.isEmpty() || jumlahStr.isEmpty()) {
+                // EFEK PREMIUM 2: HP Bergetar Error jika form kosong
+                view.performHapticFeedback(android.view.HapticFeedbackConstants.REJECT)
                 Toast.makeText(this, "Harap isi semua data!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -37,6 +42,9 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("EXTRA_IS_PAGI", rbPagi.isChecked)
 
             startActivity(intent)
+
+            // EFEK PREMIUM 3: Transisi Mulus (Fade In) saat pindah ke halaman 2
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
         }
     }
 }
