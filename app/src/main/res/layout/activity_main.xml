@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F6F9"
+    android:background="@drawable/bg_gradient"
     android:fillViewport="true">
 
     <LinearLayout
@@ -16,107 +16,114 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Portal Dosen"
-            android:textSize="16sp"
-            android:textColor="#5F6368"
+            android:text="PORTAL DOSEN"
+            android:letterSpacing="0.2"
+            android:textSize="14sp"
+            android:textColor="#B3FFFFFF"
             android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Generator Penilaian"
-            android:textSize="26sp"
+            android:textSize="28sp"
             android:textStyle="bold"
-            android:textColor="#202124"
-            android:layout_marginBottom="24dp"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="32dp"
             android:layout_gravity="center_horizontal"/>
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
-            app:cardBackgroundColor="#FFFFFF"
+            android:background="@drawable/bg_glass"
+            android:orientation="vertical"
+            android:padding="24dp"
             android:layout_marginBottom="24dp">
 
-            <LinearLayout
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Data Kelas"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etNamaDosen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:background="@drawable/bg_input_glass"
+                android:hint="Nama Lengkap Dosen"
+                android:textColorHint="#B3FFFFFF"
+                android:textColor="#FFFFFF"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="16dp"/>
 
-                <TextView
+            <EditText
+                android:id="@+id/etMataKuliah"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_glass"
+                android:hint="Mata Kuliah"
+                android:textColorHint="#B3FFFFFF"
+                android:textColor="#FFFFFF"
+                android:inputType="text"
+                android:layout_marginBottom="16dp"/>
+
+            <EditText
+                android:id="@+id/etJumlahMahasiswa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_input_glass"
+                android:hint="Jumlah Mahasiswa (Angka)"
+                android:textColorHint="#B3FFFFFF"
+                android:textColor="#FFFFFF"
+                android:inputType="number"
+                android:layout_marginBottom="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sesi Kelas:"
+                android:textColor="#E6FFFFFF"
+                android:layout_marginBottom="8dp"/>
+
+            <RadioGroup
+                android:id="@+id/rgSesiKelas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:id="@+id/rbPagi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Data Kelas"
-                    android:textStyle="bold"
-                    android:textColor="#1A73E8"
-                    android:layout_marginBottom="16dp"/>
-
-                <EditText
-                    android:id="@+id/etNamaDosen"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Nama Lengkap Dosen"
-                    android:inputType="textPersonName"
-                    android:background="@android:drawable/edit_text"
-                    android:layout_marginBottom="12dp"/>
-
-                <EditText
-                    android:id="@+id/etMataKuliah"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Mata Kuliah"
-                    android:inputType="text"
-                    android:background="@android:drawable/edit_text"
-                    android:layout_marginBottom="12dp"/>
-
-                <EditText
-                    android:id="@+id/etJumlahMahasiswa"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:hint="Jumlah Mahasiswa (Angka)"
-                    android:inputType="number"
-                    android:background="@android:drawable/edit_text"
-                    android:layout_marginBottom="16dp"/>
-
-                <TextView
+                    android:text="Pagi (Reguler)"
+                    android:textColor="#FFFFFF"
+                    app:buttonTint="#FFFFFF"
+                    android:checked="true"/>
+                <RadioButton
+                    android:id="@+id/rbMalam"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pilih Sesi Kelas:"
-                    android:textColor="#5F6368"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginStart="16dp"
+                    android:text="Malam"
+                    android:textColor="#FFFFFF"
+                    app:buttonTint="#FFFFFF"/>
+            </RadioGroup>
 
-                <RadioGroup
-                    android:id="@+id/rgSesiKelas"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-                    <RadioButton
-                        android:id="@+id/rbPagi"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Pagi (Reguler)"
-                        android:checked="true"/>
-                    <RadioButton
-                        android:id="@+id/rbMalam"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:text="Malam (Karyawan)"/>
-                </RadioGroup>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnGenerate"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#FFFFFF"
+            android:textColor="#E94057"
             android:text="GENERATE LEMBAR NILAI"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:cornerRadius="12dp"/>
+            app:cornerRadius="16dp"/>
 
     </LinearLayout>
 </ScrollView>
